@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Button } from 'react-native';
+import Monstre from './Monstre.js';
+
 import {
   SafeAreaView,
   View,
@@ -14,7 +16,7 @@ import {
 const DATA = [
   {
     id: '1',
-    title: 'Chtulu',
+    title: 'Chtiiiulu',
   },
   {
     id: '2',
@@ -46,59 +48,114 @@ const DATA = [
   },
 ];
 
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Image
-      style={styles.tinyLogo}
-      source={{
-        uri: 'http://www.rugby-privas.fr/wp-content/uploads/2014/01/point.jpg',
-      }}
-    />
-    <Button style={styles.title} title={title} />
-  </View>
-);
 
-const App = () => {
+
+export default function App() {
   const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState('right');
+  const [visible, setVisible] = useState(false);
+  const [title, setTitle] = useState("titre par default" );
+
+
+  const Item = ({ title }) => (
+    <View style={styles.item}>
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'http://www.rugby-privas.fr/wp-content/uploads/2014/01/point.jpg',
+        }}
+      />
+      <Button style={styles.title} title={title}
+        //on ouvre le menu 
+        
+        onPress={() => setVisible(true) || setTitle(title) }
+        
+        
+
+      />
+
+    </View>
+  );
+
+
+
 
 
   const navigationView = () => (
     <View style={[styles.container, styles.navigationContainer]}>
-      <Text style={styles.paragraph}>C'est les options connard!!!!!!!!</Text>
+      <Text style={styles.paragraph}>C'est les options c</Text>
       <Button
         title="Close drawer"
         onPress={() => drawer.current.closeDrawer()}
       />
     </View>
   );
+  if (visible == false) {
+    return (
+      <DrawerLayoutAndroid
+        ref={drawer}
+        drawerWidth={300}
+        drawerPosition={drawerPosition}
+        renderNavigationView={navigationView}>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.head}>
+            <Text style={styles.mainTitle}>C.I.M.P</Text>
+            <View style={styles.buttonDrawer}>
+              <Button
+                title="NULL"
+                onPress={() => drawer.current.openDrawer()}
+                color='#f1f'
 
-  return (
-    <DrawerLayoutAndroid
-      ref={drawer}
-      drawerWidth={300}
-      drawerPosition={drawerPosition}
-      renderNavigationView={navigationView}>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.head}>
-          <Text style={styles.mainTitle}>C.I.M.P</Text>
-          <View style={styles.buttonDrawer}>
-            <Button
-              title="NULL"
-              onPress={() => drawer.current.openDrawer()}
-              color='#f1f'
-            />
+              />
+            </View>
+            <Monstre visible={visible} close={() => setVisible(false)} />
+
           </View>
-        </View>
-        <Text style={styles.formation}>LES FORMATIONS</Text>
-        <FlatList
-          data={DATA}
-          renderItem={({ item }) => <Item title={item.title} />}
-          keyExtractor={item => item.id}
-        />
-      </SafeAreaView>
-    </DrawerLayoutAndroid>
-  );
+          <Text style={styles.formation}>LES FORMATIONS</Text>
+
+
+          <FlatList
+            data={DATA}
+            renderItem={({ item }) => <Item title={item.title} />}
+            keyExtractor={item => item.id}
+
+          />
+
+
+
+        </SafeAreaView>
+
+
+      </DrawerLayoutAndroid>
+    );
+  }
+  if (visible == true) {
+    return (
+      <DrawerLayoutAndroid
+        ref={drawer}
+        drawerWidth={300}
+        drawerPosition={drawerPosition}
+        renderNavigationView={navigationView}>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.head}>
+            <Text style={styles.mainTitle}>C.I.M.P</Text>
+            <View style={styles.buttonDrawer}>
+              <Button
+                title="NULL"
+                onPress={() => drawer.current.openDrawer()}
+                color='#f1f'
+
+              />
+
+            </View>
+          </View>
+        </SafeAreaView>
+        <Monstre visible={visible} close={() => setVisible(false)} title={title} />
+      </DrawerLayoutAndroid>
+
+    );
+  }
+
 };
 
 
@@ -148,6 +205,4 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 });
-
-export default App;
 
