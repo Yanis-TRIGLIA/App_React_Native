@@ -28,23 +28,23 @@ const DATA = [
   },
   {
     id: '4',
-    title: 'Rat-Porc'
+    title: 'Scylla'
   },
   {
     id: '5',
-    title: 'Anthonin'
+    title: 'Le Minotaure'
   },
   {
     id: '6',
-    title: 'NON'
+    title: 'L’HYDRE DE LERNE'
   },
   {
     id: '7',
-    title: 'NON CONNARD'
+    title: 'CERBÈRE'
   },
   {
     id: '8',
-    title: 'Parceque'
+    title: 'chupacabra'
   },
 ];
 
