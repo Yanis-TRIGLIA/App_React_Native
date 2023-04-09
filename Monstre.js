@@ -14,8 +14,16 @@ import {
   DrawerLayoutAndroid,
   Image,
 } from 'react-native';
-import { DATAC } from './data/cthulhu.js'; 
-import { DATAS } from './data/sphinx.js';
+
+import { DATACthulhu } from './data/cthulhu.js'; 
+import { DATASphinx } from './data/sphinx.js';
+import { DATAMinotaure } from './data/minotaure.js';
+import { DATAChupacabra } from './data/chupacabra.js';
+import { DATAHydre } from './data/hydre.js';
+import { DATACerbere } from './data/cerbere.js';
+import { DATALeprechaun } from './data/leprechaun.js';
+import { DATADjin } from './data/djin.js';
+
 
 
 export default function Monstre(props, titre) {
@@ -24,21 +32,36 @@ export default function Monstre(props, titre) {
 
   if(props.title == "Chtiiiulu"){
     var lien = 'https://cdn.pixabay.com/photo/2021/02/26/04/16/cthulhu-6050632_960_720.png';
-    DATA = DATAC;
 
-    
+    DATA = DATACthulhu; 
   }
   else if(props.title == "Sphinx"){
     var lien = 'https://i.pinimg.com/474x/b7/c1/11/b7c111971586816b73e9199c9c4d7816.jpg';
-    DATA = DATAS;
-    
+    DATA = DATASphinx;
   }
-  else if(props.title == "Jersey's Devil"){
-    var lien = 'https://www.libraries.rutgers.edu/sites/default/files/styles/4x3_teaser/public/2022-01/nj-devil-exhibit.png?h=24058c8d&itok=4Ig5V4Gi';
-
+  else if(props.title == "leprechaun"){
+    var lien = 'https://c8.alamy.com/compfr/m6pa1r/cartoon-leprechaun-st-patricks-day-caractere-comme-une-icone-verte-traditionnel-habille-comme-une-promotion-ou-marketing-sur-un-fond-blanc-avec-3d-m6pa1r.jpg';
+    DATA = DATALeprechaun;
+  }
+  else if(props.title == "djin"){
+    var lien = 'https://www.liveabout.com/thmb/bZ8F_v3XiCnmCc_mFsqGdOumgPo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/djinn-blue-56a6ee175f9b58b7d0e594cc.jpg';
+    DATA = DATADjin;
+  }
+  else if (props.title == "Le Minotaure"){
+    var lien = 'https://c8.alamy.com/compfr/rgn07j/dessin-a-la-main-d-un-minotaure-couleur-isolated-on-white-rgn07j.jpg';
+    DATA = DATAMinotaure;
+  }
+  else if(props.title == "L’HYDRE DE LERNE"){
+    var lien = 'https://static.wikia.nocookie.net/hanin/images/c/cc/Hydre.jpg/revision/latest/scale-to-width-down/350?cb=20180319144900&path-prefix=fr';
+    DATA = DATAHydre;
+  }
+  else if(props.title == "CERBÈRE"){
+    var lien = 'https://img.20mn.fr/zr1tTensT0-33VKisNkrOSk/490x314_cerbere-est-le-fidele-compagnon-d-hades-le-maitre-des-morts';
+    DATA = DATACerbere;
   }
   else if(props.title == "chupacabra"){
     var lien = 'https://www.magic-ville.com/fr/scan_art?imid=37340';
+    DATA = DATAChupacabra;
    
   }
 
@@ -116,10 +139,18 @@ export default function Monstre(props, titre) {
 
 
   const navigationView = () => (
-    <View style={[styles.container, styles.navigationContainer]}>
-      <Text style={styles.paragraph}>C'est les options!</Text>
+
+    <View style={[styles.containerNavigation]}>
+      <Text style={styles.paragraph}>Les Mentions Légales :</Text>
+      <View style={[styles.mentionLegale]}>
+        <Text style={styles.mentionLegaleTxt}>Cette application Appartient a "Thibault DE PERMENTIER" , L'application n'est donc pas Open source. Thibault DE PERMENTIER lancera des poursuite judiciaire dans le cas échéant </Text>
+        <Text> </Text>
+        <Text style={styles.mentionLegaleTxt}>Cordialement La direction</Text>
+
+      </View>
       <Button
-        title="Close drawer"
+        title="Retour"
+        color="#708D23"
         onPress={() => drawer.current.closeDrawer()}
       />
     </View>
@@ -136,24 +167,53 @@ export default function Monstre(props, titre) {
       drawerPosition={drawerPosition}
       renderNavigationView={navigationView}>
       <SafeAreaView style={styles.container}>
-        <View style={styles.head}>
 
-          <View style={styles.buttonDrawer}>
+        <View style={styles.head2}>
+        
+            <Pressable Pressable onPress={props.close} >
+              <Image
+                style={styles.flecheLogo}
+
+                source={{
+                  uri: 'https://cdn-icons-png.flaticon.com/512/56/56911.png',
+                }}
+
+              />
+            </Pressable>
+
+
+
+            <Text style={styles.mainTitle}>C.I.M.P</Text>
+
+            <View style={styles.buttonDrawer}>
+              <Pressable onPress={() => drawer.current.openDrawer()}>
+                <Image
+                  style={styles.flecheLogo2}
+
+                  source={{
+                    uri: 'https://cdn-icons-png.flaticon.com/512/82/82122.png',
+                  }}
+
+                />
+              </Pressable>
+            </View>
 
           </View>
-        </View>
+         
+        
+    
         <Text style={styles.titre}> Fiche Monstre : </Text>
         <Text style={styles.formation}>{props.title}</Text>
 
         <Image
-          style={styles.tinyLogo}
+
+          style={styles.tinyLogoMonstre}
+
           source={{
             uri: lien,
           }}
         />
         <InerTexte />
-        <Button title='Retour'
-          onPress={props.close} />
       </SafeAreaView>
     </DrawerLayoutAndroid>
   );

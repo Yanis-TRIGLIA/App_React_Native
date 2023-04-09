@@ -24,11 +24,11 @@ const DATA = [
   },
   {
     id: '3',
-    title: 'Jersey\'s Devil',
+    title: 'leprechaun',
   },
   {
     id: '4',
-    title: 'Scylla'
+    title: 'djin'
   },
   {
     id: '5',
@@ -71,6 +71,8 @@ export default function App() {
         //on ouvre le menu 
 
         onPress={() => setVisible(true) || setTitle(title)}
+        color="#708D23"
+
       />
 
     </View>
@@ -103,7 +105,9 @@ export default function App() {
         renderNavigationView={navigationView}>
         <SafeAreaView style={styles.container}>
           <View style={styles.head}>
-            <Pressable Pressable onPress={() => setVisible2(true)} >
+
+            <View>
+
               <Image
                 style={styles.flecheLogo}
 
@@ -112,7 +116,10 @@ export default function App() {
                 }}
 
               />
-            </Pressable>
+
+            </View>
+
+
 
 
 
@@ -138,6 +145,13 @@ export default function App() {
             renderItem={({ item }) => <Item title={item.title} />}
             keyExtractor={item => item.id}
           />
+
+           <View style = {styles.buttonCartification}>
+            <Button title='Passer a la certification'
+              onPress={() => setVisible2(true)}
+              color="#708D23" />
+          </View>
+
         </SafeAreaView>
       </DrawerLayoutAndroid>
     );
@@ -179,6 +193,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
+    backgroundColor:"#EDEDED",
+
+
   },
   containerNavigation: {
     display: 'flex',
@@ -210,6 +227,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 35,
     justifyContent: 'flex-end',
+    backgroundColor:"#D4D4D4",
 
   },
   mainTitle: {
