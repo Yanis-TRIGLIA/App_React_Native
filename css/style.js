@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
 
   section: {
 
-    backgroundColor: '#708D23',
+    backgroundColor: 'black',
 
     padding: 20,
     borderRadius: 8,
