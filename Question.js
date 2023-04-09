@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from 'react';
 import { StyleSheet, Text, View, Button, Alert ,StatusBar} from 'react-native';
 import {questions} from './data/question.js';
@@ -104,6 +105,7 @@ const createAndSavePDF = async (html) => {
 
 
 
+
 //on mélange les questions 
 questions.sort(() => Math.random() - 0.5);
 
@@ -111,6 +113,7 @@ export default function Question(props) {
 
     const [questionIndex, setQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
+
 
     const navigationView = () => (
         <View style={[styles.containerNavigation]}>
@@ -155,6 +158,7 @@ export default function Question(props) {
     const FinDuQuiz = questionIndex === questions.length;
 
     return (
+
         <DrawerLayoutAndroid
       ref={drawer}
       drawerWidth={300}
@@ -191,11 +195,13 @@ export default function Question(props) {
                 </Pressable>
             </View>
         </View>
+
             <Text style={styles.questionText}>Epreuve de C.I.M.P</Text>
             {!FinDuQuiz &&
                 <View>
                     <Text style={styles.questionText}>{questions[questionIndex].question}</Text>
                     {questions[questionIndex].options.map((option) => (
+
                         <View style={styles.button}>
                             <Button
                                 key={option}
@@ -204,6 +210,7 @@ export default function Question(props) {
                                 color="#708D23"
                             />
                         </View>
+
                     ))}
                 </View>
             }
@@ -211,6 +218,7 @@ export default function Question(props) {
                 <View>
                     <Text style={styles.questionText}>Fin du quiz !</Text>
                     <Text style={styles.questionText}>Votre score est de {score}/{questions.length}</Text>
+
                     <Button title="Recommencer" onPress={resetQuiz} color="#708D23" />
                     <Button title="Retour au Menu" onPress={props.close} color="#708D23" />
                     {score === questions.length &&
@@ -220,6 +228,7 @@ export default function Question(props) {
             }
         </SafeAreaView>
         </DrawerLayoutAndroid>
+
     );
 }
 
@@ -227,16 +236,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
+
         backgroundColor: '#EDEDED',
+
     },
     questionText: {
         fontSize: 24,
         fontWeight: 'bold',
         textAlign: 'center',
+
         marginBottom:20,
     },
     button: {
         margin:20,
+
+
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -251,6 +265,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginVertical: 30,
     },
+
     head2: {
         display: 'flex',
         flexDirection: 'row',

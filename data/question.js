@@ -1,5 +1,6 @@
 export const questions = [
     {
+
         question: 'Quelle est la coulleur préfére de Cthulhu?',
         options: ['Magenta', 'Vert', 'caca d\'oie'],
         reponse: 'Vert',
@@ -79,7 +80,6 @@ export const questions = [
         options: ['la pierre Djaja', 'la pierre JarJar', 'la pierre d\'Adja'],
         reponse: 'la pierre d\'Adja',
     },
-    
     
     // Ajoutez autant de questions que vous le souhaitez ici
 ];

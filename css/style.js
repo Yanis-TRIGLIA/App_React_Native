@@ -1,3 +1,4 @@
+
 import { StyleSheet , StatusBar } from 'react-native';
   
 
@@ -7,17 +8,22 @@ export const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     backgroundColor:"#EDEDED",
+
     marginTop: 0,
   },
 
   section: {
+
     backgroundColor: '#708D23',
+
     padding: 20,
     borderRadius: 8,
     marginBottom: 16,
     marginTop: 32,
+
     marginRight:20,
     marginLeft:20,
+
   },
   sectionText: {
     fontWeight: 'bold',
@@ -30,6 +36,7 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
+
     backgroundColor:"#EDEDED",
   },
 
@@ -38,6 +45,7 @@ export const styles = StyleSheet.create({
     height: 90,
     //on le bouge pour le mettre au centre
     marginLeft: 130,
+
     //on faiit une bordure
     borderWidth: 1.5,
     //on lui donne une couleur
@@ -47,6 +55,7 @@ export const styles = StyleSheet.create({
     marginTop: 10,
 
   },
+
 
   tinyLogo:{
       width: 50,
@@ -62,24 +71,30 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     backgroundColor:"#D4D4D4",
 
+
   },
   mainTitle: {
     fontSize: 50,
+
     fontStyle: 'italic',
     marginLeft: 40,
   },
   formation: {
     fontSize: 20,
     marginLeft: 140,
+
   
   },
   titre: {
     fontSize: 25,
     fontWeight: 'bold',
+
     marginLeft: 85,
+
     fontFamily: 'sans-serif',
 
   },
+
 
 
   buttonDrawer: {
@@ -113,6 +128,7 @@ export const styles = StyleSheet.create({
   mentionLegaleTxt: {
     fontSize: 20,
     fontStyle: 'italic',
+
   },
 
 

@@ -14,6 +14,7 @@ import {
   DrawerLayoutAndroid,
   Image,
 } from 'react-native';
+
 import { DATACthulhu } from './data/cthulhu.js'; 
 import { DATASphinx } from './data/sphinx.js';
 import { DATAMinotaure } from './data/minotaure.js';
@@ -24,12 +25,14 @@ import { DATALeprechaun } from './data/leprechaun.js';
 import { DATADjin } from './data/djin.js';
 
 
+
 export default function Monstre(props, titre) {
   var DATA = [];
   var lien = 'https://www.mjc-castanet-tolosan.fr/wp-content/uploads/2016/06/Pas-dimage-disponible1-e1466657277567.jpg';
 
   if(props.title == "Chtiiiulu"){
     var lien = 'https://cdn.pixabay.com/photo/2021/02/26/04/16/cthulhu-6050632_960_720.png';
+
     DATA = DATACthulhu; 
   }
   else if(props.title == "Sphinx"){
@@ -59,6 +62,7 @@ export default function Monstre(props, titre) {
   else if(props.title == "chupacabra"){
     var lien = 'https://www.magic-ville.com/fr/scan_art?imid=37340';
     DATA = DATAChupacabra;
+   
   }
 
   const Item = ({ texte }) => (
@@ -135,6 +139,7 @@ export default function Monstre(props, titre) {
 
 
   const navigationView = () => (
+
     <View style={[styles.containerNavigation]}>
       <Text style={styles.paragraph}>Les Mentions Légales :</Text>
       <View style={[styles.mentionLegale]}>
@@ -162,6 +167,7 @@ export default function Monstre(props, titre) {
       drawerPosition={drawerPosition}
       renderNavigationView={navigationView}>
       <SafeAreaView style={styles.container}>
+
         <View style={styles.head2}>
         
             <Pressable Pressable onPress={props.close} >
@@ -195,18 +201,19 @@ export default function Monstre(props, titre) {
           </View>
          
         
-        
+    
         <Text style={styles.titre}> Fiche Monstre : </Text>
         <Text style={styles.formation}>{props.title}</Text>
 
         <Image
+
           style={styles.tinyLogoMonstre}
+
           source={{
             uri: lien,
           }}
         />
         <InerTexte />
-
       </SafeAreaView>
     </DrawerLayoutAndroid>
   );

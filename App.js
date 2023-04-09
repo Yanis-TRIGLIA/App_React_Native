@@ -72,6 +72,7 @@ export default function App() {
 
         onPress={() => setVisible(true) || setTitle(title)}
         color="#708D23"
+
       />
 
     </View>
@@ -104,7 +105,9 @@ export default function App() {
         renderNavigationView={navigationView}>
         <SafeAreaView style={styles.container}>
           <View style={styles.head}>
+
             <View>
+
               <Image
                 style={styles.flecheLogo}
 
@@ -113,7 +116,10 @@ export default function App() {
                 }}
 
               />
+
             </View>
+
+
 
 
 
@@ -139,11 +145,13 @@ export default function App() {
             renderItem={({ item }) => <Item title={item.title} />}
             keyExtractor={item => item.id}
           />
+
            <View style = {styles.buttonCartification}>
             <Button title='Passer a la certification'
               onPress={() => setVisible2(true)}
               color="#708D23" />
           </View>
+
         </SafeAreaView>
       </DrawerLayoutAndroid>
     );
@@ -184,7 +192,9 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     alignItems: 'center',
     justifyContent: 'center',
+
     backgroundColor:"#EDEDED",
+
 
   },
   containerNavigation: {
