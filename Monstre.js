@@ -187,11 +187,7 @@ export default function Monstre(props, titre) {
           }}
         />
         <InerTexte />
-        <View style = {styles.buttonCartification}>
-          <Button title='Passer a la certification'
-            onPress={props.close} 
-            color="#708D23" />
-        </View>
+
       </SafeAreaView>
     </DrawerLayoutAndroid>
   );

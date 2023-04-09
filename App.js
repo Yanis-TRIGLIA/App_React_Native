@@ -104,7 +104,7 @@ export default function App() {
         renderNavigationView={navigationView}>
         <SafeAreaView style={styles.container}>
           <View style={styles.head}>
-            <Pressable Pressable onPress={() => setVisible2(true)} >
+            <View>
               <Image
                 style={styles.flecheLogo}
 
@@ -113,7 +113,7 @@ export default function App() {
                 }}
 
               />
-            </Pressable>
+            </View>
 
 
 
@@ -139,6 +139,11 @@ export default function App() {
             renderItem={({ item }) => <Item title={item.title} />}
             keyExtractor={item => item.id}
           />
+           <View style = {styles.buttonCartification}>
+            <Button title='Passer a la certification'
+              onPress={() => setVisible2(true)}
+              color="#708D23" />
+          </View>
         </SafeAreaView>
       </DrawerLayoutAndroid>
     );

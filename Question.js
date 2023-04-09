@@ -70,33 +70,33 @@ export default function Question(props) {
         <SafeAreaView style={styles.container}>
             <View style={styles.head2}>
         
-        <Pressable Pressable onPress={props.close} >
-          <Image
-            style={styles.flecheLogo}
+                <Pressable Pressable onPress={props.close} >
+                <Image
+                    style={styles.flecheLogo}
 
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/56/56911.png',
-            }}
+                    source={{
+                    uri: 'https://cdn-icons-png.flaticon.com/512/56/56911.png',
+                    }}
 
-          />
-        </Pressable>
+                />
+                </Pressable>
 
 
 
-        <Text style={styles.mainTitle}>C.I.M.P</Text>
+                <Text style={styles.mainTitle}>C.I.M.P</Text>
 
-        <View style={styles.buttonDrawer}>
-          <Pressable onPress={() => drawer.current.openDrawer()}>
-            <Image
-              style={styles.flecheLogo2}
+                <View style={styles.buttonDrawer}>
+                <Pressable onPress={() => drawer.current.openDrawer()}>
+                    <Image
+                    style={styles.flecheLogo2}
 
-              source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/82/82122.png',
-              }}
+                    source={{
+                        uri: 'https://cdn-icons-png.flaticon.com/512/82/82122.png',
+                    }}
 
-            />
-          </Pressable>
-        </View>
+                    />
+                </Pressable>
+            </View>
         </View>
             <Text style={styles.questionText}>Epreuve de C.I.M.P</Text>
             {!FinDuQuiz &&
