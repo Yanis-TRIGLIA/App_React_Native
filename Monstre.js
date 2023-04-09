@@ -93,7 +93,7 @@ export default function Monstre(props, titre) {
           {item.key === 'basique' && (
             <View>
               <Pressable onPress={() => setBasique(basique == 0 ? -1 : 0)} style={styles.section}>
-                <Text style={styles.sectionText}>Basique</Text>
+                <Text style={styles.sectionText}>Basique                                       ⬇️</Text>
               </Pressable>
               {basique === 0 && <List data={DATA[0]} />}
             </View>
@@ -101,7 +101,7 @@ export default function Monstre(props, titre) {
           {item.key === 'essentiels' && (
             <View>
               <Pressable onPress={() => setEssentiels(essentiels == 1 ? -1 : 1)} style={styles.section}>
-                <Text style={styles.sectionText}>Les essentiels</Text>
+                <Text style={styles.sectionText}>Les essentiels                           ⬇️</Text>
               </Pressable>
               {essentiels === 1 && <List data={DATA[1]} />}
             </View>
@@ -109,7 +109,7 @@ export default function Monstre(props, titre) {
           {item.key === 'rituel' && (
             <View>
               <Pressable onPress={() => setRituel(rituel == 2 ? -1 : 2)} style={styles.section}>
-                <Text style={styles.sectionText}>1er rituel</Text>
+                <Text style={styles.sectionText}>1er rituel                                     ⬇️</Text>
               </Pressable>
               {rituel === 2 && <List data={DATA[2]} />}
             </View>

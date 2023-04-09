@@ -62,16 +62,12 @@ export default function App() {
     <View style={styles.item}>
       <Image
         style={styles.tinyLogo}
-
-        source={{
-          uri: 'https://e7.pngegg.com/pngimages/941/871/png-clipart-upload-pivot-animator-animation-internet-forum-small-dots-miscellaneous-text.png',
-        }}
       />
       <Button style={styles.title} title={title}
         //on ouvre le menu 
 
         onPress={() => setVisible(true) || setTitle(title)}
-        color="#708D23"
+        color="#4A64F6"
 
       />
 
@@ -112,7 +108,7 @@ export default function App() {
                 style={styles.flecheLogo}
 
                 source={{
-                  uri: 'https://cdn-icons-png.flaticon.com/512/56/56911.png',
+                  uri: 'https://cdn-icons-png.flaticon.com/512/45/45180.png',
                 }}
 
               />
@@ -175,7 +171,7 @@ export default function App() {
         drawerWidth={300}
         drawerPosition={drawerPosition}
         renderNavigationView={navigationView}>
-        <Question visible2={visible2} close={() => setVisible(false)} />
+        <Question visible2={visible2} close={() => setVisible2(false)} />
       </DrawerLayoutAndroid>
 
     );
@@ -190,29 +186,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: "#EDEDED",
     alignItems: 'center',
     justifyContent: 'center',
-
-    backgroundColor:"#EDEDED",
-
-
   },
-  containerNavigation: {
+  container: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   item: {
     display: 'flex',
     flexDirection: 'row',
-    padding: 10,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    marginTop : 7,
+    backgroundColor: '#4A64F6',
 
   },
-
   tinyLogo: {
     width: 50,
     height: 50,
@@ -226,9 +219,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 35,
+    marginTop:20,
     justifyContent: 'flex-end',
-    backgroundColor:"#D4D4D4",
-
+    backgroundColor: "#D4D4D4",
   },
   mainTitle: {
     fontSize: 50,
@@ -246,8 +239,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   paragraph: {
-    marginTop: 100,
-    marginBottom: 115,
+    marginTop: 90,
+    marginBottom: 110,
     fontSize: 29,
     fontStyle: 'italic',
   },
@@ -259,4 +252,3 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
 });
-

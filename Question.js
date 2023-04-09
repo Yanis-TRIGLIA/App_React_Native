@@ -249,8 +249,6 @@ const styles = StyleSheet.create({
     },
     button: {
         margin:20,
-
-
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -259,6 +257,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#FFF',
+        
     },
     scoreText: {
         fontSize: 20,
