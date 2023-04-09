@@ -2,13 +2,61 @@ import React, { useRef, useState } from 'react';
 import { StyleSheet, Text, View, Button, Alert ,StatusBar} from 'react-native';
 import {questions} from './data/question.js';
 import { Pressable } from 'react-native';
-
+import * as Print from 'expo-print';
+import * as MediaLibrary from "expo-media-library";
+import * as Sharing from "expo-sharing";
+import * as Asset from 'expo-asset';
 import {
   SafeAreaView,
   FlatList,
   DrawerLayoutAndroid,
   Image,
 } from 'react-native';
+
+
+const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tu es un CIMP</title>
+        <style>
+            body {
+                font-size: 16px;
+                color: rgb(255, 196, 0);
+            }
+
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>salut mes bebous</h1>
+    </body>
+    </html>
+`;
+
+const createAndSavePDF = async (html) => {
+    try {
+      const { uri } = await Print.printToFileAsync({ html });
+      alert(uri)
+      if (Platform.OS === "ios") {
+        await Sharing.shareAsync(uri);
+      } else {
+        const permission = await MediaLibrary.requestPermissionsAsync();
+        if (permission.granted) {
+          await MediaLibrary.createAssetAsync(uri);
+        }
+      }
+  
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
 
 
 //on mélange les questions 
@@ -120,6 +168,7 @@ export default function Question(props) {
                     <Text style={styles.questionText}>Votre score est de {score}/{questions.length}</Text>
                     <Button title="Recommencer" onPress={resetQuiz} color="#708D23" />
                     <Button title="Retour au Menu" onPress={props.close} color="#708D23" />
+                    <Button title="Récupéré sa certification" onPress={()=>createAndSavePDF(htmlContent)} color="#708D23"/>
                 </View>
             }
         </SafeAreaView>
