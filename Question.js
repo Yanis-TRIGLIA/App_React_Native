@@ -16,38 +16,83 @@ import {
 
 const htmlContent = `
     <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>tu es un CIMP</title>
-        <style>
-            body {
-                font-size: 16px;
-                color: rgb(255, 196, 0);
-            }
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tu es un CIMP</title>
+    <style>
+        body {
+            font-size: 14px;
+            color: rgb(0, 0, 0);
+        }
 
-            h1 {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>salut mes bebous</h1>
-    </body>
-    </html>
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        
+        }
+        p {
+            font-style: italic;
+        }
+        .p1{
+            font-style: italic;
+            color: green;
+
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <h1>Certification de compétence d'invocateur de Monstre </h1>
+    <br>
+    <br>
+    <center>
+    <ul>
+        <li><strong>Compétence 1 : Validation de Cthulhu</strong></li>
+        <p>Commentaire de l'examinateur : Vous serais valider quand vous pronomcerai correctement mon nom </p>
+        <p class='p1'>Valider</p>
+        <li><strong>Compétence 2 : Validation de Sphynx</strong></li>
+        <p>Commentaire de l'examinateur : exelent , Mais veuiller ne plus prononcer 42 en ma présence</p>
+        <p class='p1'>Valider</p>
+        <li><strong>Compétence 3 : Validation de Leprechaun</strong></li>      
+        <p>Commentaire  de l'examinateur: Merci pour le Pot-de-vin</p>
+        <p class='p1'>Valider</p>
+        <li><strong>Compétence 4 : Validation de Djin</strong></li>
+        <p>Commentaire de l'examinateur : Arreter de demmander des voeux infinit a nos Djins ou ils vont se mettre en grève </p>
+        <p class='p1'>Valider</p>
+        <li><strong>Compétence 5 : Validation de Minotaure</strong></li>
+        <p>Commentaire de l'examinateur: Correcte même si vous vous etes perdu dans le Dédale</p>
+        <p class='p1'>Valider</p>
+        <li><strong>Compétence 6 : Validation de l'hydre de Lerne</strong></li>
+        <p>Commentaire de l'examinateur : Bien , vous devez quand penser a payer l'hopital</p>
+        <p class='p1'>Valider</p>
+        <li><strong>Compétence 7 : Validation de Cerbère</strong></li>
+        <p>Commentaire de l'examinateur : Veiller à l'avenir d'éviter tous retard sur les lieux de l'examin </p>
+        <p class='p1'>Valider</p>
+        <li><strong>Compétence 8 : Validation de Chupacabra</strong></li>
+        <p>Commentaire de l'examinateur : Votre comportement est inacceptable , Merci de cessé vos commentaires raciste sur les buritos</p>
+        <p class='p1'>Valider</p>
+        
+
+    </ul>
+    </center>
+
+</body>
+</html>
 `;
 
 const createAndSavePDF = async (html) => {
     try {
       const { uri } = await Print.printToFileAsync({ html });
-      alert(uri)
       if (Platform.OS === "ios") {
         await Sharing.shareAsync(uri);
       } else {
         const permission = await MediaLibrary.requestPermissionsAsync();
         if (permission.granted) {
+          
           await MediaLibrary.createAssetAsync(uri);
+          alert("Votre Certifica est en Pdf dans document de votre téléphone")
         }
       }
   
@@ -168,7 +213,9 @@ export default function Question(props) {
                     <Text style={styles.questionText}>Votre score est de {score}/{questions.length}</Text>
                     <Button title="Recommencer" onPress={resetQuiz} color="#708D23" />
                     <Button title="Retour au Menu" onPress={props.close} color="#708D23" />
-                    <Button title="Récupéré sa certification" onPress={()=>createAndSavePDF(htmlContent)} color="#708D23"/>
+                    {score === questions.length &&
+                        <Button title="Récupéré sa certification" onPress={()=>createAndSavePDF(htmlContent)} color="#708D23"/>
+                    }
                 </View>
             }
         </SafeAreaView>

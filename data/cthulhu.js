@@ -1,4 +1,4 @@
-export const DATAC = [
+export const DATACthulhu = [
     [
         // Basique
       {

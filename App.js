@@ -24,11 +24,11 @@ const DATA = [
   },
   {
     id: '3',
-    title: 'Jersey\'s Devil',
+    title: 'leprechaun',
   },
   {
     id: '4',
-    title: 'Scylla'
+    title: 'djin'
   },
   {
     id: '5',
